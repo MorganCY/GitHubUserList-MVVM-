@@ -15,10 +15,10 @@ class ListViewModel {
     
     func fetchUserList() {
 
-        UserProvider.shared.getUserList { [weak self] result in
+        UserProvider.shared.fetchUserInfo(endPoint: .userList) { [weak self] result in
             switch result {
             case .success(let userList):
-                self?.setUserList(userList)
+                self?.setUserList(userList as! [User])
             case .failure(let error):
                 print("fetch user list failure: \(error)")
             }

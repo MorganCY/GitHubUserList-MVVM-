@@ -31,6 +31,7 @@ class ListViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,10 +53,23 @@ extension ListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+extension ListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let cellViewModel = viewModel.userViewModels.value[indexPath.row]
+        let userDetailVC = DetailViewController(username: cellViewModel.login)
+        navigationController?.pushViewController(userDetailVC, animated: true)
+    }
+}
+
+// MARK: - Setup UI
 extension ListViewController {
 
     func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         view.stickSubView(tableView)
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: ListTableViewCell.identifier)
     }
