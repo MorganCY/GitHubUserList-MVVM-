@@ -174,7 +174,7 @@
 		2AD8286C26CE05253A619FE1A12A396E /* Pods-GitHubUserList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GitHubUserList-dummy.m"; sourceTree = "<group>"; };
 		2B0C40609DF081C8A27951AD8F7181EB /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Sources/Cache/Storage.swift; sourceTree = "<group>"; };
 		2B6F92B85EEFBFC3B1CE56E19EB1D53D /* CallbackQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CallbackQueue.swift; path = Sources/Utility/CallbackQueue.swift; sourceTree = "<group>"; };
-		2DBDCD75EA53B1C6C168A164E781C4A4 /* Pods-GitHubUserList */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-GitHubUserList"; path = Pods_GitHubUserList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DBDCD75EA53B1C6C168A164E781C4A4 /* Pods_GitHubUserList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUserList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF5327909A98A61B3FD020A9F3DDE75 /* NSTextAttachment+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTextAttachment+Kingfisher.swift"; path = "Sources/Extensions/NSTextAttachment+Kingfisher.swift"; sourceTree = "<group>"; };
 		2F915A5C6CEC44986D0CF3B810AD4DA8 /* MJRefreshStateTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.h; sourceTree = "<group>"; };
 		38BC0C3A17E886D8A91946A2E5636D8F /* MJRefreshConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConfig.m; path = MJRefresh/MJRefreshConfig.m; sourceTree = "<group>"; };
@@ -452,7 +452,7 @@
 			children = (
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
 				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */,
-				2DBDCD75EA53B1C6C168A164E781C4A4 /* Pods-GitHubUserList */,
+				2DBDCD75EA53B1C6C168A164E781C4A4 /* Pods_GitHubUserList.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -650,7 +650,7 @@
 			);
 			name = "Pods-GitHubUserList";
 			productName = Pods_GitHubUserList;
-			productReference = 2DBDCD75EA53B1C6C168A164E781C4A4 /* Pods-GitHubUserList */;
+			productReference = 2DBDCD75EA53B1C6C168A164E781C4A4 /* Pods_GitHubUserList.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E8022D22FAA6690B5E1C379C1BCE1491 /* Kingfisher */ = {
