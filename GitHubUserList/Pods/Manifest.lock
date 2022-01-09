@@ -1,16 +1,20 @@
 PODS:
   - Kingfisher (7.1.1)
+  - MJRefresh (3.7.5)
 
 DEPENDENCIES:
   - Kingfisher
+  - MJRefresh
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - MJRefresh
 
 SPEC CHECKSUMS:
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
 
-PODFILE CHECKSUM: f05f9676cb821495ff46c5e06686b22830c9bf51
+PODFILE CHECKSUM: 6240553c3e73ddd570876085d2c3ba49a66a6646
 
 COCOAPODS: 1.11.2

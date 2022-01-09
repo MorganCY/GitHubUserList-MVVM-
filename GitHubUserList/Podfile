@@ -7,5 +7,6 @@ target 'GitHubUserList' do
 
   # Pods for GitHubUserList
   pod 'Kingfisher'
+  pod 'MJRefresh'
 
 end

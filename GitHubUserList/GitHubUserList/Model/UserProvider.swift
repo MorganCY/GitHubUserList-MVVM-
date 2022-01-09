@@ -13,6 +13,10 @@ final class UserProvider {
 
     static let shared = UserProvider()
 
+    var requestSince = 0
+
+    var perRequestNumber = 20
+
     private init() {}
 
     func fetchUserInfo(
@@ -24,7 +28,7 @@ final class UserProvider {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
 
             guard let data = data else { return }
 
@@ -34,6 +38,7 @@ final class UserProvider {
                 switch endPoint {
                 case .userList:
                     let userListData = try decoder.decode([User].self, from: data)
+                    self?.requestSince += self?.perRequestNumber ?? 0
                     completion(.success(userListData))
 
                 case .detailedUser(_):

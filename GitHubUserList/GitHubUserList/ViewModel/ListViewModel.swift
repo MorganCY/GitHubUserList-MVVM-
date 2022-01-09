@@ -11,22 +11,34 @@ class ListViewModel {
 
     let userViewModels = Box([UserViewModel]())
 
-    var refreshView: (()->())?
-    
-    func fetchUserList() {
+    // Refresh targeting view
+    var refreshView: (() -> Void)?
+    var endFooterRefreshing: (() -> Void)?
+    var endWithNoMoreData: (() -> Void)?
 
-        UserProvider.shared.fetchUserInfo(endPoint: .userList) { [weak self] result in
+    func fetchUserList() {
+        UserProvider.shared.fetchUserInfo(
+            endPoint: .userList(
+            since: UserProvider.shared.requestSince,
+            perRequest: UserProvider.shared.perRequestNumber)
+        ) { [weak self] result in
             switch result {
             case .success(let userList):
                 self?.setUserList(userList as! [User])
+                self?.endFooterRefreshing?()
             case .failure(let error):
-                print("fetch user list failure: \(error)")
+                print(error)
             }
         }
     }
 
+    // Refresh the user list data on targeting view
     func onRefresh() {
         self.refreshView?()
+    }
+
+    func setUserList(_ userList: [User]) {
+        userViewModels.value += convertUsersToViewModels(from: userList)
     }
 
     func convertUsersToViewModels(from users: [User]) -> [UserViewModel] {
@@ -36,9 +48,5 @@ class ListViewModel {
             viewModels.append(viewModel)
         }
         return viewModels
-    }
-
-    func setUserList(_ userList: [User]) {
-        userViewModels.value = convertUsersToViewModels(from: userList)
     }
 }

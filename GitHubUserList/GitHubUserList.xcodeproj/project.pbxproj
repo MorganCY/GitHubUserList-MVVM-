@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2E7446278ADACA000C202E /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E7445278ADACA000C202E /* MJRefresh.swift */; };
 		5C478840278AD68300B8D58C /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C47883B278AD68300B8D58C /* DetailTableViewCell.swift */; };
 		5C478841278AD68300B8D58C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C47883C278AD68300B8D58C /* DetailViewController.swift */; };
 		5C478842278AD68300B8D58C /* DetailTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C47883D278AD68300B8D58C /* DetailTableViewHeader.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		4243FBA9E49F0571969CC97F /* Pods_GitHubUserList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUserList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2E7445278ADACA000C202E /* MJRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
 		5C47883B278AD68300B8D58C /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		5C47883C278AD68300B8D58C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5C47883D278AD68300B8D58C /* DetailTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewHeader.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				5C796CD4277B081100B7D7AF /* Kingfisher.swift */,
+				5C2E7445278ADACA000C202E /* MJRefresh.swift */,
 			);
 			path = LibraryWrapper;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				5C796CC5277AFCDA00B7D7AF /* UserProvider.swift in Sources */,
 				5CC11C21277B3CA20098FC57 /* ListViewModel.swift in Sources */,
 				5C478847278AD6D800B8D58C /* DetailColumn.swift in Sources */,
+				5C2E7446278ADACA000C202E /* MJRefresh.swift in Sources */,
 				5C478841278AD68300B8D58C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

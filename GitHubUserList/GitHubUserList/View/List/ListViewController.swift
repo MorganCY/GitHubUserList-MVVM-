@@ -10,13 +10,15 @@ import UIKit
 
 class ListViewController: UIViewController {
 
+    // MARK: - Properties
     let tableView = UITableView()
-
     let viewModel = ListViewModel()
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         setupVC()
         setupTableView()
+        addTableViewFooterLoader()
         self.viewModel.fetchUserList()
 
         viewModel.userViewModels.bind { [weak self] users in
@@ -26,6 +28,21 @@ class ListViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        }
+    }
+
+    // MARK: - Functions
+    func addTableViewFooterLoader() {
+        tableView.addRefreshFooter { [weak self] in
+            self?.viewModel.fetchUserList()
+        }
+
+        viewModel.endFooterRefreshing = { [weak self] in
+            self?.tableView.endFooterRefreshing()
+        }
+
+        viewModel.endWithNoMoreData = { [weak self] in
+            self?.tableView.endWithNoMoreData()
         }
     }
 }
