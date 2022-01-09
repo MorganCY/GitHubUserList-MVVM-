@@ -15,14 +15,13 @@ class ListViewController: UIViewController {
     let viewModel = ListViewModel()
 
     override func viewDidLoad() {
+        setupVC()
         setupTableView()
-
         self.viewModel.fetchUserList()
 
         viewModel.userViewModels.bind { [weak self] users in
             self?.viewModel.onRefresh()
         }
-        
         viewModel.refreshView = {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -67,10 +66,15 @@ extension ListViewController: UITableViewDelegate {
 // MARK: - Setup UI
 extension ListViewController {
 
+    func setupVC() {
+        view.backgroundColor = .white
+        title = "GitHub User List"
+    }
+
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         view.stickSubView(tableView)
-        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: ListTableViewCell.identifier)
+        tableView.registerCellWithNib(identifier: ListTableViewCell.identifier, bundle: nil)
     }
 }
