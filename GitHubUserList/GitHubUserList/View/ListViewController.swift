@@ -23,9 +23,9 @@ class ListViewController: UIViewController {
             self?.viewModel.onRefresh()
         }
         
-        viewModel.refreshView = { [weak self] () in
+        viewModel.refreshView = {
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
     }
@@ -42,10 +42,10 @@ extension ListViewController: UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier, for: indexPath)
 
-        guard let userCell = cell as? ListTableViewCell else { return cell }
-
+        guard let userCell = cell as? ListTableViewCell else {
+            return cell
+        }
         let cellViewModel = self.viewModel.userViewModels.value[indexPath.row]
-
         userCell.layoutCell(viewModel: cellViewModel)
 
         return userCell

@@ -61,14 +61,14 @@ class ListTableViewCell: UITableViewCell {
     }
 
     func layoutCell(viewModel: UserViewModel) {
-
         self.viewModel = viewModel
         layoutCell()
     }
 
     private func layoutCell() {
-
-        guard let viewModel = viewModel else { return }
+        guard let viewModel = viewModel else {
+            return
+        }
         loginLabel.text = viewModel.login
         adminLabel.text = "Site Admin: \(viewModel.admin)"
         avatarImageView.loadImage(viewModel.avatarImageUrl, placeHolder: nil)
