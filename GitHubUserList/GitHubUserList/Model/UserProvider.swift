@@ -7,28 +7,50 @@
 
 import Foundation
 
+typealias completionHandler<T> = (Result<T, Error>) -> Void
+
 final class UserProvider {
 
     static let shared = UserProvider()
 
+    var requestSince = 0
+
+    var perRequestNumber = 20
+
     private init() {}
 
-    typealias completionHandler = (Result<[User], Error>) -> Void
+    func fetchUserInfo(
+        endPoint: UserRequest,
+        completion: @escaping completionHandler<Any>
+    ) {
 
-    func getUserList(completion: @escaping completionHandler) {
-        guard let url = URL(string: "https://api.github.com/users?page=1&per_page=10") else { return }
+        guard let url = URL(string: "https://api.github.com\(endPoint.endPoint)") else {
+            return
+        }
 
-        URLSession.shared.dataTask(with: url) {
-            data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+
             guard let data = data else { return }
+
             do {
                 let decoder = JSONDecoder()
-                let userListData = try decoder.decode([User].self, from: data)
-                completion(.success(userListData))
+
+                switch endPoint {
+                case .userList:
+                    let userListData = try decoder.decode([User].self, from: data)
+                    self?.requestSince += self?.perRequestNumber ?? 0
+                    completion(.success(userListData))
+
+                case .detailedUser(_):
+                    let userDetail = try decoder.decode(User.self, from: data)
+                    completion(.success(userDetail))
+                }
             } catch {
                 completion(.failure(error))
             }
+
         }.resume()
     }
 }
+
 
